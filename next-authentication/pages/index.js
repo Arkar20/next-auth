@@ -20,9 +20,10 @@ export default function Home() {
 
     // isValid.data.isValid ? console.log("is true") : console.log("not true");
   };
-
   return (
     <>
+      <h2>See the lazy load in this page.</h2>
+      <Link href="/Lazyload">See lazy Load</Link>
       {token && <div>You are logined.</div>}
       <Link href="/Home">Go to Home</Link>
       <form action="" metho="POST">
