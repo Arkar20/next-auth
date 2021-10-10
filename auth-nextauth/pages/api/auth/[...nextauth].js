@@ -17,4 +17,22 @@ export default NextAuth({
     // ...add more providers here
   ],
   database: process.env.DATABASE_URL,
+  session: {
+    jwt: true,
+  },
+  jwt: {
+    secret: "INp8IvdIyeMcoGAgFGoA61DdBglwwSqnXJZkgz8PSnw",
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      // console.log(user);
+      if (user) token.id = user.id;
+
+      return token;
+    },
+    async session({ session, user, token }) {
+      session.user.id = token.id;
+      return session;
+    },
+  },
 });
